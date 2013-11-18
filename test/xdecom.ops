@@ -1,0 +1,9 @@
+import ("ocl")
+import ("JointStateMsgServer")
+loadComponent("JState","JointStateMsgServer")
+server("JState",true)
+
+JState.configure()
+JState.setPeriod(1)
+JState.start()
+
