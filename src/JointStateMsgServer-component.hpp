@@ -13,7 +13,8 @@ class JointStateMsgServer : public RTT::TaskContext{
     void stopHook();
     void cleanupHook();
     double delta;
-	sensor_msgs::JointState joint_states;
+    sensor_msgs::JointState joint_states;
     RTT::OutputPort<sensor_msgs::JointState> port_joint_state;
+    RTT::OutputPort<double> port_double;
 };
 #endif

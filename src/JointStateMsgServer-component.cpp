@@ -4,6 +4,7 @@
 
 JointStateMsgServer::JointStateMsgServer(std::string const& name) : TaskContext(name){
   this->addPort("JointState", port_joint_state);
+  this->addPort("doublePort", port_double);
   std::cout << "JointStateMsgServer constructed !" <<std::endl;
 }
 
@@ -33,6 +34,7 @@ void JointStateMsgServer::updateHook(){
   delta += 0.05;
   joint_states.header.stamp.fromNSec ( RTT::os::TimeService::Instance()->getNSecs() );
   port_joint_state.write(joint_states);
+  port_double.write(delta);
   std::cout << "JointStateMsgServer executes updateHook !" <<std::endl;
 }
 
